@@ -1,0 +1,11 @@
+import dotenv from "dotenv"
+import connectDB from "./db/index.js";
+
+
+dotenv.config({
+    path:"./env"
+})
+// humne sub ki baat kari lekin dotenv ki baat nahi kari dontenv kia hai hum kiya chahte hai jitni jaldi application load ho itni jaldi saare environment variable hr jagga hona chaiye take ager main file me available ho gai tu is k bad db k under index file likhi hai kai or bi use kr rahe hai tu sub ko is k access mil jai tu jo first file load ho rahi hai is hi me hum kosish krte hai wahi pr humare environment variable load ho jai ab kis tarha se ye bol raha hai require('dotenv').config() requrie wala syntax use karo ab problem kiya hai waise tu koi problem nahi hai lekin humare code ki consistency nahi rahi tu ap is ko or improve kr k likh sakhte ho kaise import dotenv from "dotenv" lekin ye abhi chalega nahi kio k dotenv ko config bi krna parta hai ye ek method hai object leta is k under ap path add kr do root directry k under hi humne environment variable rakhe hai tu sub kuch le lena ye jo feature hai isko hum experiment feature ki tarha use kr sakhte hai kio k ye documentation me nahi hai package.json me jai scripts me likhna hai 
+// "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js"
+
+connectDB()
