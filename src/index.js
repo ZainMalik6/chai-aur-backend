@@ -9,3 +9,24 @@ dotenv.config({
 // "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js"
 
 connectDB()
+.then(()=>{
+    // then k under bi apko call back milega ab yaha pr kiya hai hum is app k use karege or is app ko listen karege tabhi tu humara server start hoga abhi tu mongodb connected howa but humari application ne is database k use krte howe listen krna shoro nahi kiya tha tu is k liye kiya krte hai 
+    
+    // app.on("error", (error) =>{
+    //     console.log("ERROR:", error)
+    //     throw error
+    // })
+
+    app.listen(process.env.PORT || 8000, ()=>{
+        console.log(` Server is running at port : ${process.env.PORT}`)
+    })
+    // jo mene last me choti se cheez discuss kari thi k app.listen e phele kai bar error k liye bi listen krna chate hai tu ye jo on.listen hai ye kam me ap pr chorta ho k ye wala code 
+    // app.on("error", (error) =>{
+    //     console.log("ERROR:", error)
+    //     throw error
+    // }) ager apko theek lage tu ye bi krye ga 
+})
+.catch((err)=>{
+    // db connection error hi hai ye console.log kr dete hai
+    console.log("Mongo db connection faild !!!", err)
+})
